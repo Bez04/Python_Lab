@@ -3,22 +3,42 @@ class student :
         self.rollno=rollno
         self.name=name
         self.course=course
-    def displaystudents(self):
+    def displayStudents(self):
         print("Roll Number:",self.rollno)
         print("Name:",self.name) 
         print("Course:",self.course) 
-#inheritence
-class test(student):
-    def getmarks(self,Marks):
-        self.Marks=Marks
+    def displaystudent (self):
+        print("Roll Number:", self.rollno)
+        print("Course:", self.course)
+        print("Name:", self.name)
+#Inheritance
+class Test (student):
+    def getMarks (self, marks):
+     self.marks=marks
     def displayMarks(self):
-        print("Total Marks :",self.Marks)
-r=int(input("Enter The Roll Number :"))
-n=input("Enter The Name :")  
-c=input("Enter The Course :")
-m=int(input("Enter The Marks :")) 
-print("Result") 
-stud1=test()
+        print ("Total Marks:", self.marks)
+#Multilevel Inheritance
+class Result (Test):
+    def calculateGrade (self):
+     if self.marks>480: self.grade ="Distinction"
+     elif self.marks>360: self.grade="First Class"
+     elif self.marks>240: self.grade="Second Class"
+     else:self.grade="Failed"
+     print ("Result:", self.grade) 
+#Main Program
+r=int (input("Enter Roll Number:"))
+n=input ("Enter Name:")
+c=input ("Enter Course Name:")
+m=int (input ("Enter Marks:"))
+#creating the object
+print("Result")
+studl=Result() 
+studl.getdata(r,n,c)
+studl.getMarks (m)
+studl.displaystudent()
+studl.displayMarks()
+studl.calculateGrade() 
+        
 stud1.getdata(r,n,c)
 stud1.getmarks(m)
 stud1.displaystudents()
